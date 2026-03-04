@@ -18,6 +18,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.XR;
 using static BreezeV2.Menu.Main;
+using static BreezeV2.Classes.SimpleInputs;
 
 namespace BreezeV2.Mods
 {
@@ -99,58 +100,15 @@ namespace BreezeV2.Mods
                 }
             }
         }
-        public static void DestroyGun()
+        public static void Spinhead()
         {
-            if (ControllerInputPoller.instance.rightControllerGripFloat > 0.6f)
+            if (LeftTrigger)
             {
-                var GunData = RenderGun();
-                GameObject NewPointer = GunData.NewPointer;
-                if (ControllerInputPoller.TriggerFloat(XRNode.RightHand) > 0.5f)
-                {
-                    if (canShoot && lastShootTime + 0.5f < Time.time)
-                    {
-                        lastShootTime = Time.time;
-
-                        if (NewPointer != null)
-                        {
-                            for (int i = 0; i < NewPointer.transform.childCount; i++)
-                            {
-                                var child = NewPointer.transform.GetChild(i).gameObject;
-                                if (child != null && child.activeSelf)
-                                {
-                                    child.SetActive(false);
-                                }
-                            }
-
-                            var renderers = NewPointer.GetComponentsInChildren<Renderer>(true);
-                            foreach (var rend in renderers)
-                            {
-                                if (rend == null)
-                                    continue;
-
-                                if (rend.gameObject == NewPointer )
-                                    continue;
-
-                                if (rend.enabled)
-                                    rend.enabled = false;
-                            }
-
-                            var particleSystems = NewPointer.GetComponentsInChildren<ParticleSystem>(true);
-                            foreach (var ps in particleSystems)
-                            {
-                                if (ps != null)
-                                    ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-                            }
-
-                            var colliders = NewPointer.GetComponentsInChildren<Collider>(true);
-                            foreach (var col in colliders)
-                            {
-                                if (col != null && col.enabled)
-                                    col.enabled = false;
-                            }
-                        }
-                    }
-                }
+                VRRig.LocalRig.head.rigTarget.transform.rotation = Quaternion.Euler(UnityEngine.Random.Range(-180f, 180f), UnityEngine.Random.Range(-180f, 180f), UnityEngine.Random.Range(-180f, 180f));
+            }
+            else
+            {
+                VRRig.LocalRig.head.rigTarget.transform.rotation = GorillaTagger.Instance.headCollider.transform.rotation;
             }
         }
         #region Gunlibfixfrfrfrfrfrf
@@ -237,6 +195,7 @@ namespace BreezeV2.Mods
             }
             #endregion
         }
+
     }
 }
 

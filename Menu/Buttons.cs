@@ -48,7 +48,6 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Notifications", enableMethod = () => disableNotifications = false, disableMethod = () => disableNotifications = true, enabled = !disableNotifications, toolTip = "Toggles the notifications." },
                 new ButtonInfo { buttonText = "FPS Counter", enableMethod = () => fpsCounter = true, disableMethod = () => fpsCounter = false, enabled = fpsCounter, toolTip = "Toggles the FPS counter." },
                 new ButtonInfo { buttonText = "Disconnect Button", enableMethod = () => disconnectButton = true, disableMethod = () => disconnectButton = false, enabled = disconnectButton, toolTip = "Toggles the disconnect button." },
-                new ButtonInfo { buttonText = "Leave after 7 reports", enableMethod = () => Safety.Leaveafter7reports = true, disableMethod = () => Safety.Leaveafter7reports = false, isTogglable = true, toolTip = "changes text color to black", enabled = true },
             },
 
             new ButtonInfo[] { // Movement Settings [3]
@@ -128,6 +127,7 @@ namespace BreezeV2.Menu
             },
             new ButtonInfo[] { //visual Mods [11]
                 new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
+                new ButtonInfo { buttonText = "Spinhead", method = () => Otherstuff.Spinhead(), toolTip = "Spins your head when holding left trigger" },
                 
             }
         };
