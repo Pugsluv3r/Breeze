@@ -7,6 +7,7 @@ using System;
 using System.Net;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 using UnityEngine.Splines;
 using static BreezeV2.Classes.SimpleInputs;
 
@@ -16,7 +17,7 @@ namespace BreezeV2.Mods
     public class Safety
     {
         public static float Lastreporttime = 0f;
-        public static float threshold = 9f;
+        public static float threshold = 0.115f;
         public static int reportcount = 0;
         public static float Notifdelay;
         public static float Thing1 { get; private set; }
@@ -75,7 +76,7 @@ namespace BreezeV2.Mods
                     }
                     else if (!currentlyReported)
                     {
-                        wasBeingReported = false;
+                            
                     }
                 }
             }
