@@ -1,5 +1,6 @@
 ﻿using BreezeV2.Classes;
 using BreezeV2.Mods;
+using System.Diagnostics;
 using static BreezeV2.Menu.Main;
 using static BreezeV2.Settings;
 
@@ -24,26 +25,28 @@ namespace BreezeV2.Menu
         public static ButtonInfo[][] buttons = new ButtonInfo[][]
         {
             new ButtonInfo[] { // Main Mods [0]
-                new ButtonInfo { buttonText = "Settings", method = () => currentCategory = 1, isTogglable = false, toolTip = "Opens the main settings page for the menu." },
-                new ButtonInfo { buttonText = "Room Mods", method = () => currentCategory = 4, isTogglable = false, toolTip = "Opens the room mods tab." },
-                new ButtonInfo { buttonText = "Movement Mods", method = () => currentCategory = 5, isTogglable = false, toolTip = "Opens the movement mods tab." },
-                new ButtonInfo { buttonText = "Safety Mods", method = () => currentCategory = 6, isTogglable = false, toolTip = "Opens the safety mods tab." },
-                new ButtonInfo { buttonText = "Advantage Mods", method = () => currentCategory = 7, isTogglable = false, toolTip = "Opens the advantage mods tab." },
-                new ButtonInfo { buttonText = "Overpowered Mods", method = () => currentCategory = 8, isTogglable = false, toolTip = "Opens the Overpowered mods tab." },
-                new ButtonInfo { buttonText = "Debug", method = () => currentCategory = 9, isTogglable = false, toolTip = "Temporary mods" },
-                new ButtonInfo { buttonText = "Visual Mods", method = () => currentCategory = 11, isTogglable = false, toolTip = "Toggles visual mods." },
-                new ButtonInfo { buttonText = "Other", method = () => currentCategory = 10, isTogglable = false, toolTip = "Mods that are to niche to have a catagory" }
+                new ButtonInfo { buttonText = "Join Discord", method = () => Process.Start("https://discord.gg/v6VvmGNd5n"), isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Modifiers", method = () => currentCategory = 1, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Room", method = () => currentCategory = 4, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Movement", method = () => currentCategory = 5, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Safety", method = () => currentCategory = 6, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Advantage", method = () => currentCategory = 7, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Overpowered", method = () => currentCategory = 8, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Debug", method = () => currentCategory = 9, isTogglable = false, toolTip = "" },
+               //new ButtonInfo { buttonText = "Visual", method = () => currentCategory = 11, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Extra", method = () => currentCategory = 10, isTogglable = false, toolTip = "" }
             },
 
             new ButtonInfo[] { // Settings [1]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
                 new ButtonInfo { buttonText = "Menu", method = () => currentCategory = 2, isTogglable = false, toolTip = "Opens the settings for the menu." },
-                new ButtonInfo { buttonText = "Movement", method = () => currentCategory = 3, isTogglable = false, toolTip = "Opens the movement settings for the menu." },
+                new ButtonInfo { buttonText = "Change Fly Speed", overlapText = "Change Fly Speed [Normal]", method = () => Mods.Settings.Movement.ChangeFlySpeed(), isTogglable = false, toolTip = "Changes the speed of the fly mod." },
+                //new ButtonInfo { buttonText = "Movement", method = () => currentCategory = 3, isTogglable = false, toolTip = "Opens the movement settings for the menu." },
             },
 
             new ButtonInfo[] { // Menu Settings [2]
-                new ButtonInfo { buttonText = "Return to Settings", method = () => currentCategory = 1, isTogglable = false, toolTip = "Returns to the main settings page for the menu." },
-                new ButtonInfo { buttonText = "darktext", enableMethod = () => Darktext = true, disableMethod = () => Darktext = false, isTogglable = true, toolTip = "changes text color to black" },
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 1, isTogglable = false, toolTip = "Returns to the main settings page for the menu." },
+                new ButtonInfo { buttonText = "Dark Text", enableMethod = () => Darktext = true, disableMethod = () => Darktext = false, isTogglable = true, toolTip = "changes text color to black" },
                 new ButtonInfo { buttonText = "Right Hand", enableMethod = () => rightHanded = true, disableMethod = () => rightHanded = false, toolTip = "Puts the menu on your right hand." },
                 new ButtonInfo { buttonText = "Notifications", enableMethod = () => disableNotifications = false, disableMethod = () => disableNotifications = true, enabled = !disableNotifications, toolTip = "Toggles the notifications." },
                 new ButtonInfo { buttonText = "FPS Counter", enableMethod = () => fpsCounter = true, disableMethod = () => fpsCounter = false, enabled = fpsCounter, toolTip = "Toggles the FPS counter." },
@@ -51,13 +54,12 @@ namespace BreezeV2.Menu
             },
 
             new ButtonInfo[] { // Movement Settings [3]
-                new ButtonInfo { buttonText = "Return to Settings", method = () => currentCategory = 1, isTogglable = false, toolTip = "Returns to the main settings page for the menu." },
-
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 1, isTogglable = false, toolTip = "" },
                 new ButtonInfo { buttonText = "Change Fly Speed", overlapText = "Change Fly Speed [Normal]", method = () => Mods.Settings.Movement.ChangeFlySpeed(), isTogglable = false, toolTip = "Changes the speed of the fly mod." },
             },
 
             new ButtonInfo[] { // Room Mods [4]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
             #region <----Codes----->
                 new ButtonInfo { buttonText = "Disconnect", method = () => NetworkSystem.Instance.ReturnToSinglePlayer(), isTogglable = false, toolTip = "Disconnects you from the room." },
                 new ButtonInfo { buttonText = "Join Code Mod", method = () => RoomMods.Joinroom("MOD"), isTogglable = false, toolTip = "Self explanatory" },
@@ -82,7 +84,7 @@ namespace BreezeV2.Menu
             },
 
             new ButtonInfo[] { // Movement Mods [5]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
 
                 new ButtonInfo { buttonText = "Platforms", method = () => Movement.Platforms(), toolTip = "Spawns platforms on your hands when pressing grip." },
                 new ButtonInfo { buttonText = "Fly", method = () => Movement.Fly(), toolTip = "Sends you forward when holding A." },
@@ -93,7 +95,7 @@ namespace BreezeV2.Menu
             },
 
             new ButtonInfo[] { // Safety Mods [6]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
 
                 new ButtonInfo { buttonText = "Return to Stump [B]", method = () => Safety.ReturnToStump(), toolTip = "Teleports you back to stump when pressing B." },
                 new ButtonInfo { buttonText = "Disconnect [LT]", method = () => Safety.LTdisconnect(), isTogglable = true, toolTip = "Press Left trigger 2 disconnect" },
@@ -102,14 +104,14 @@ namespace BreezeV2.Menu
             },
 
             new ButtonInfo[] { // Advantage Mods [7]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
 
-                new ButtonInfo { buttonText = "notify when lavas near", method = () => Advantage.NotifyWhenLavaIsNear(), toolTip = "Notifys you when lava is near." },
+                new ButtonInfo { buttonText = "Notify When Lavas Near", method = () => Advantage.NotifyWhenLavaIsNear(), toolTip = "Notifys you when lava is near." },
 
 
             },
             new ButtonInfo[] { // Overpowered Mods [8]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
 
                 new ButtonInfo { buttonText = "Fling player [X]", method = () => Overpowered.Fling(), toolTip = "flings players when pressing X (Mustbehandlinked)" },
                 new ButtonInfo { buttonText = "Random Teleport [X]", method = () => Overpowered.RandomTpPlayer(), toolTip = "Teleports players randomly when pressing X (Must be handlinked)" },
@@ -117,17 +119,17 @@ namespace BreezeV2.Menu
 
             },
             new ButtonInfo[] { // Debug Mods [9]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
-                new ButtonInfo { buttonText = "wasdFly", method = () => Temp.WASDFly(), toolTip = "T" },
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "WASD Fly", method = () => Temp.WASDFly(), toolTip = "Flys with WASD" },
             },
             new ButtonInfo[] { // Other [10]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
-                new ButtonInfo { buttonText = "BuildGun", method = () => Otherstuff.Buildgun(), toolTip = "Spawns a gun that can place cubes" },
-                new ButtonInfo { buttonText = "gunlibfix", method = () => Otherstuff.GunLibfix(), toolTip = "i fucking hate iitemp", enabled = true}
+                new ButtonInfo { buttonText = "<color=green>BACK</color>", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
+                new ButtonInfo { buttonText = "Build Gun", method = () => Otherstuff.Buildgun(), toolTip = "Spawns a gun that can place cubes" },
+                new ButtonInfo { buttonText = "Gunlib Fix", method = () => Otherstuff.GunLibfix(), toolTip = "i fucking hate iitemp", enabled = true}
             },
             new ButtonInfo[] { //visual Mods [11]
-                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "Returns to the main page of the menu." },
-                new ButtonInfo { buttonText = "Spinhead", method = () => Otherstuff.Spinhead(), toolTip = "Spins your head when holding left trigger" },
+                new ButtonInfo { buttonText = "Return to Main", method = () => currentCategory = 0, isTogglable = false, toolTip = "" },
+                //new ButtonInfo { buttonText = "Spin Head", method = () => Otherstuff.Spinhead(), toolTip = "Spins your head when holding left trigger" },
                 
             }
         };
