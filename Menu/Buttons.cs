@@ -71,7 +71,7 @@ namespace BreezeV2.Menu
                 new ButtonInfo { buttonText = "Join Code Menu Room", method = () => RoomMods.Joinroom("breezeV2"), isTogglable = false, toolTip = "Self explanatory" },
                 new ButtonInfo { buttonText = "Join Code Cat", method = () => RoomMods.Joinroom("CAT"), isTogglable = false, toolTip = "Self explanatory" },
                 new ButtonInfo { buttonText = "Join Code Kitty", method = () => RoomMods.Joinroom("KITTY"), isTogglable = false, toolTip = "Self explanatory" },
-                new ButtonInfo { buttonText = "Join Code IIDK", method = () => RoomMods.Joinroom("IIDK"), isTogglable = false, toolTip = "Self explanatory" },
+                new ButtonInfo { buttonText = "Join Code Therian", method = () => RoomMods.Joinroom("THERIAN"), isTogglable = false, toolTip = "Self explanatory" },
                 new ButtonInfo { buttonText = "Join Code Twig", method = () => RoomMods.Joinroom("TWIG"), isTogglable = false, toolTip = "Self explanatory" },
                 new ButtonInfo { buttonText = "Join Code Twigcore", method = () => RoomMods.Joinroom("TWIGCORE"), isTogglable = false, toolTip = "Self explanatory" },
                 new ButtonInfo { buttonText = "Join Code Sren17", method = () => RoomMods.Joinroom("SREN17"), isTogglable = false, toolTip = "Self explanatory" },
