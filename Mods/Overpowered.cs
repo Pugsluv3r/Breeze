@@ -15,8 +15,8 @@ namespace BreezeV2.Mods
         {
             if (LeftX)
             {
-                GTPlayer.Instance.RightHand.controllerTransform.position = new Vector3(0, -299f, 0);
-                GTPlayer.Instance.LeftHand.controllerTransform.position = new Vector3(0, -299f, 0);
+                GTPlayer.Instance.RightHand.controllerTransform.localPosition = new Vector3(0, -299f, 0);
+                GTPlayer.Instance.LeftHand.controllerTransform.localPosition = new Vector3(0, -299f, 0);
             }
         }
         public static void RandomTpPlayer()

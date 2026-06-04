@@ -26,9 +26,7 @@ Loaded:
 (____/(_)\_)(____)(____)(____)(____)    \/  (___/()
 Made by Pugs!                               [1.0.3]
                 Powered by II Template
-She gon call me bae call me bae call me boo
-she gon call me bae she gon call me boo?
-#MonkeAgent :baggy_eyes:
+Random ass update !!!!!
 ");
             Otherstuff.Customboards();
         }
